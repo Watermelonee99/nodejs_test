@@ -15,6 +15,7 @@ mongoose.connect("mongodb+srv://root:1234@mydb.a53fjz0.mongodb.net/?retryWrites=
 app.set('views', path.resolve(__dirname + '/views'))
 app.set('view engine','ejs')
 
+
 app.use(express.urlencoded({extended:false}))
 app.use(express.json())
 app.use(session({                                          
@@ -23,6 +24,7 @@ app.use(session({
   saveUninitialized:true,
   store : new FileStore()
 }))
+app.use(express.static('public'));
 app.use('/',apiRouter)
 
 let port = 8008
